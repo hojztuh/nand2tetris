@@ -14,4 +14,12 @@ CHIP FullAdder {
 
     PARTS:
     // Put you code here:
+    Xor(a=a, b=b, out=temp);
+    Xor(a=temp, b=c, out=sum);
+
+    HalfAdder(a=a, b=b, sum=t1, carry=t2);
+    Nand(a=c, b=t1, out=w1);
+    Not(in=t2, out=w2);
+    Nand(a=w1, b=w2, out= carry);
+
 }
